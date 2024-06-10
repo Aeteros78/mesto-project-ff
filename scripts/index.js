@@ -1,10 +1,10 @@
 // @todo: Темплейт карточки
 const cardTempate = document.querySelector('#card-template').content.querySelector('.places__item'); // создаем темплейт, забираем из него контент
 // @todo: DOM узлы
-const cardContainer = document.querySelector('.places__list'); // добавляем в DOM список
+const cardsContainer = document.querySelector('.places__list'); // добавляем в DOM список
 // @todo: Функция создания карточки
 
-const addCard = (card, onDelete) => {
+const createCard = (card, onDelete) => {
     const newCard = cardTempate.cloneNode(true); // Ищем в темплейте шаблон и клонируем его
     const deleteButton = newCard.querySelector('.card__delete-button'); // Находим на карточке кнопку удалить
     newCard.querySelector('.card__image').src = card.link; // Добавляем ссылку на картинку
@@ -25,6 +25,6 @@ const handleDeleteCard = (card) => {
 // @todo: Вывести карточки на страницу
 
 initialCards.forEach((card) => { // Проходим по массиву
-    const newCard = addCard(card, handleDeleteCard); // Получаем карточку и удаление на неё
-    cardContainer.append(newCard); // Новая карточка помещается в начало
+    const newCard = createCard(card, handleDeleteCard); // Получаем карточку и удаление на неё
+    cardsContainer.append(newCard); // Новая карточка помещается в начало
 });
